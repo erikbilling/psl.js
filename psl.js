@@ -47,8 +47,6 @@
 	
 */
 
-var SUPPORT_THRESHOLD = 1;
-
 function Hypothesis(lhs,rhs,hits,misses) {
 	this.id = Hypothesis.count++;
 	this.lhs = lhs;
