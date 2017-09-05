@@ -98,11 +98,21 @@ Psl.prototype = {
 	clear: function() {
 		this.hypotheses = [];
 	},
-	train: function(s,startIndex,callback) {
-		if (callback == undefined) {
-			callback = startIndex;
-			startIndex = 1;
+	train: function(attr) {
+		var s = attr.s;
+		var startIndex = attr.startIndex || 1;
+		if (s == undefined) {
+			return;
+		} else if (attr.repeat && attr.repeat > 1) {
+			for (var i = 1; i<attr.repeat; i++) {
+				if (attr.loop) s += attr.s;
+				else this.train({
+					s: s,
+					startIndex: startIndex
+				});
+			}
 		}
+
 		for (var i=startIndex;i<s.length; i++) {
 			var sub = s.substring(0,i);
 			var t = s[i];
@@ -135,7 +145,7 @@ Psl.prototype = {
 				newh = this.grow(sub,bestCorrect || t);
 			}
 			console.log(newh);
-			if (callback) callback(i, maxh, maxh && maxh.rhs || '', correct, newh);	
+			if (attr.callback) attr.callback(i, maxh, maxh && maxh.rhs || '', correct, newh);	
 		}
 	},
 	getVtFactor: function(h) {
