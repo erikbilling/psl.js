@@ -101,6 +101,7 @@ Psl.prototype = {
 	train: function(attr) {
 		var s = attr.s;
 		var startIndex = attr.startIndex || 1;
+		var stopIndex = attr.stopIndex || s.length
 		if (s == undefined) {
 			return;
 		} else if (attr.repeat && attr.repeat > 1) {
@@ -113,7 +114,7 @@ Psl.prototype = {
 			}
 		}
 
-		for (var i=startIndex;i<s.length; i++) {
+		for (var i=startIndex;i<stopIndex; i++) {
 			var sub = s.substring(0,i);
 			var t = s[i];
 			var hs = this.match(sub);
