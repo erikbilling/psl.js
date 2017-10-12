@@ -13,7 +13,7 @@ You may also check out the more elaborated example where **psl.js** is used to p
 Usage
 -----
 
-**psl.js** can be used in the browser or standalone, using Node.js. 
+**psl.js** can be used in the browser or standalone, using [node.js](https://nodejs.org/en/). 
 
 ### Browser uage 
 
@@ -40,24 +40,17 @@ $(function() {
 });
 ```
 
-Please note that this example depends on [jQuery](https://jquery.com/). **psl.js** itself is however independent of external libraries. Like **psl.js**, jQuery can be linked directly from the [CDN](https://code.jquery.com/), e.g.:
-
-```javascript
-<script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-```
+Please note that this example depends on [jQuery](https://jquery.com/). **psl.js** itself is however independent of external libraries. Like **psl.js**, jQuery can be linked directly from the [CDN](https://code.jquery.com/).
 
 ### Standalone usage
 
-First, make sure you have [Node.js](https://nodejs.org/en/) installed. **psl.js** is available in the [Node Package Manager (npm)](https://www.npmjs.com/). Assuming that you have npm installed, simply do: 
+First, make sure you have [node.js](https://nodejs.org/en/) installed. **psl.js** is available in the [Node Package Manager (npm)](https://www.npmjs.com/). Assuming that you have npm installed, simply do: 
 
 ```
 npm install psl.js
 ```
 
-Alternatively, you may also clone this repository and link **psl.js** manually. 
+Alternatively, you may also download **psl.js** from [GitHub](https://github.com/billingo/psl.js) and link manually. 
 
 Now, you make create a simple little Hello World like this:
 
