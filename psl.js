@@ -99,7 +99,7 @@ Psl.prototype = {
 		this.hypotheses = [];
 	},
 	train: function(attr) {
-		var s = attr.s;
+		var s = (typeof attr === 'string') && attr || attr.s;
 		var startIndex = attr.startIndex || 1;
 		var stopIndex = attr.stopIndex || s.length
 		if (s == undefined) {
@@ -145,7 +145,7 @@ Psl.prototype = {
 			if (!correct) {
 				newh = this.grow(sub,bestCorrect || t);
 			}
-			console.log(newh);
+
 			if (attr.callback) attr.callback(i, maxh, maxh && maxh.rhs || '', correct, newh);	
 		}
 	},
@@ -245,3 +245,6 @@ String.prototype.substr = function(from, to, pretext) {
 		return Array(1-from).join(pretext || '#') + this.substring(0, to);
 	}
 }
+
+/* Node.js interface */
+if (exports) exports.Psl = Psl;
