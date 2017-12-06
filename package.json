@@ -1,6 +1,6 @@
 {
   "name": "psl.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple implementation of the Predictive Sequence Learning (PSL) algorithm, used for machine learning and enactive computing. This implementation is primarily intended for educational purposes, not large scale ML tasks.",
   "main": "psl.js",
   "scripts": {
