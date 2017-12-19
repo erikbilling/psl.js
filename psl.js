@@ -247,4 +247,6 @@ String.prototype.substr = function(from, to, pretext) {
 }
 
 /* Node.js interface */
-if (exports) exports.Psl = Psl;
+if (typeof exports != 'undefined') {
+	exports.Psl = Psl;
+}
