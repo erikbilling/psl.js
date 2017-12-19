@@ -22,10 +22,10 @@ describe('PSL ABCC test', function() {
   it('PSL should learn the string ABCC from repetition', function() {
     var psl = new Psl();
     var s = ['','','','c','b','c','a','c','b','c','c','a','b','c','c'];
-    psl.train({s:'abccabccabccabcc', callback: function(i, maxh, predicted, correct, newh) {
-      console.log({i:i, maxh:maxh, predicted:predicted, correct:correct, newh:newh});
+    psl.train('abccabccabccabcc', function(i, maxh, predicted, correct, newh) {
+      console.log(i + ', Selected hypothesis: ' + (maxh ? maxh.toString() : 'null') + (correct ? ' (correct) ' : ' (incorrect) ') + (newh ? ('New hypothesis: ' + newh.toString()) : ''));
     	expect(predicted).to.equal(s[i-1]);
-    }});
+    });
   });
 });
  
