@@ -98,10 +98,17 @@ Psl.prototype = {
 	clear: function() {
 		this.hypotheses = [];
 	},
-	train: function(attr) {
+
+	/** Train PSL
+	 *  Usage: psl.train(source string,callback) or psl.train(attr).
+	 *  @param attr is an object specifying {s: source string, startIndex, stopIndex, callback}.
+	 */ 
+	train: function(attr, callback) {
 		var s = (typeof attr === 'string') && attr || attr.s;
 		var startIndex = attr.startIndex || 1;
 		var stopIndex = attr.stopIndex || s.length
+		callback = callback || attr.callback;
+
 		if (s == undefined) {
 			return;
 		} else if (attr.repeat && attr.repeat > 1) {
@@ -146,7 +153,7 @@ Psl.prototype = {
 				newh = this.grow(sub,bestCorrect || t);
 			}
 
-			if (attr.callback) attr.callback(i, maxh, maxh && maxh.rhs || '', correct, newh);	
+			if (callback) callback(i, maxh, maxh && maxh.rhs || '', correct, newh);	
 		}
 	},
 	getVtFactor: function(h) {
